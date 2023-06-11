@@ -21,7 +21,7 @@ const ContactList = function () {
       {filteredContacts.map(({ id, name, number }) => (
         <li className={css.itemContact} key={id}>
           <p className={css.contactName}>
-            {name}: {number}
+            {name}:{number}
           </p>
           <button
             data-id={id}
