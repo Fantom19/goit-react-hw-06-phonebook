@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { qwery } from 'redux/sliceFilter';
+import { addFilter } from 'redux/sliceFilter';
 import css from './Filter.module.css';
 
 const Filter = function () {
@@ -14,7 +14,7 @@ const Filter = function () {
         type="text"
         name="filter"
         value={filter}
-        onChange={e => dispatch(qwery(e.currentTarget.value))}
+        onChange={e => dispatch(addFilter(e.currentTarget.value))}
       />
     </label>
   );

@@ -7,14 +7,20 @@ export const sliceContact = createSlice({
     { id: nanoid(), name: 'Ani Copeland', number: '337-99-26' },
   ],
   reducers: {
-    addContact(state, action) {
-      state.push({
-        id: nanoid(),
-        name: action.payload.name,
-        number: action.payload.number,
-      });
+    addContact: {
+      reducer: (state, action) => {
+        state.push(action.payload);
+      },
+      prepare: (name, number) => {
+        return {
+          payload: {
+            id: nanoid(),
+            name,
+            number,
+          },
+        };
+      },
     },
-
     removeContact(state, action) {
       return state.filter(item => item.id !== action.payload);
     },

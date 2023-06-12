@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/sliceContact';
 import css from './ContactForm.module.css';
+import { getContacts } from 'redux/selectors';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ const ContactForm = () => {
     setName('');
     setNumber('');
   };
-  const contacts = useSelector(state => state.contacts);
+  const contacts = useSelector(getContacts);
 
   return (
     <form className={css.form} onSubmit={handleSubmit}>
